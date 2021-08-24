@@ -7,10 +7,16 @@ const IndexPage: NextPage = () => {
   const dispatch = useAppDispatch();
   const bossName = useAppSelector(selectBossName);
   const tL = useAppSelector(selectTL);
-  console.log(tL);
+  // console.log(tL);
   const headerFormat = useAppSelector(selectHeaderFormat);
   return (
-    <div>
+    <div className="mt-10">
+      <h1 className="text-6xl font-bold">
+        Welcome to{" "}
+        <a className="text-blue-600" href="https://nextjs.org">
+          Next.js!
+        </a>
+      </h1>
       {bossName}
       <button onClick={() => dispatch(changeBossName("adb"))}>bossname</button>
       {headerFormat}
