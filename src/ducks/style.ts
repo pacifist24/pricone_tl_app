@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { AppState } from "../app/store";
+import type { AppState } from '../app/store';
 
-export type PaddingType = "none" | "head" | "tail";
-export type ArrangeType = "none" | "same" | "next";
+export type PaddingType = 'none' | 'head' | 'tail';
+export type ArrangeType = 'none' | 'same' | 'next';
 
 export type StyleState = {
   headerFormat: string;
@@ -17,18 +17,18 @@ export type StyleState = {
 };
 
 const initialState: StyleState = {
-  headerFormat: "",
-  selfUBFormat: "",
-  bossUBFormat: "",
-  footerFormat: "",
+  headerFormat: '',
+  selfUBFormat: '',
+  bossUBFormat: '',
+  footerFormat: '',
   startTime: 0,
-  shouldAddPadding: "none",
-  shouldArrangeHorizontally: "none",
+  shouldAddPadding: 'none',
+  shouldArrangeHorizontally: 'none',
   nameSubstitutionTable: {},
 };
 
 export const styleSlice = createSlice({
-  name: "style",
+  name: 'style',
   initialState,
   reducers: {
     changeHeaderFormat: (state, action: PayloadAction<string>) => {
@@ -39,7 +39,6 @@ export const styleSlice = createSlice({
 
 export const { changeHeaderFormat } = styleSlice.actions;
 
-export const selectHeaderFormat = (state: AppState): string =>
-  state.style.headerFormat;
+export const selectHeaderFormat = (state: AppState): string => state.style.headerFormat;
 
 export default styleSlice.reducer;

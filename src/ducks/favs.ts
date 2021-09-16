@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { AppState } from "../app/store";
-import { Character } from "./tl";
+import type { AppState } from '../app/store';
+import { Character } from './tl';
 
 export type Fav = {
   phase: number;
@@ -20,7 +20,7 @@ const initialState: FavsState = {
 };
 
 export const favsSlice = createSlice({
-  name: "favs",
+  name: 'favs',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -32,7 +32,6 @@ export const favsSlice = createSlice({
 
 // export const { changeHeaderFormat } = styleSlice.actions;
 
-export const selectFavs = (state: AppState): { [key: string]: Fav } =>
-  state.favs.favs;
+export const selectFavs = (state: AppState): { [key: string]: Fav } => state.favs.favs;
 
 export default favsSlice.reducer;

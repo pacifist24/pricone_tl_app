@@ -1,12 +1,18 @@
-import { configureStore /*, ThunkAction, Action*/ } from "@reduxjs/toolkit";
+import { configureStore /* , ThunkAction, Action */ } from '@reduxjs/toolkit';
 
-import tlReducer from "../ducks/tl";
-import styleReducer from "../ducks/style";
-import favsReducer from "../ducks/favs";
+import tlReducer from '../ducks/tl';
+import styleReducer from '../ducks/style';
+import favsReducer from '../ducks/favs';
+import mainReducer from '../ducks/main';
 
 export function makeStore() {
   return configureStore({
-    reducer: { tl: tlReducer, style: styleReducer, favs: favsReducer },
+    reducer: {
+      tl: tlReducer,
+      style: styleReducer,
+      favs: favsReducer,
+      main: mainReducer,
+    },
   });
 }
 
