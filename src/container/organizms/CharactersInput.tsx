@@ -1,17 +1,21 @@
-import { VFC } from 'react';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { VFC, useState } from 'react';
+import { useAppSelector } from '../../app/hooks';
 import { selectTL } from '../../ducks/tl';
-import CharactersPanelComponent from '../../components/organizms/CharactersInput';
+import CharactersInputComponent from '../../components/organizms/CharactersInput';
 
-const CharactersPanel: VFC = () => {
-  const dispatch = useAppDispatch();
+const CharactersInput: VFC = () => {
   const tl = useAppSelector(selectTL);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <CharactersPanelComponent characters={tl.characters} />
+      <CharactersInputComponent
+        characters={tl.characters}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
     </>
   );
 };
 
-export default CharactersPanel;
+export default CharactersInput;

@@ -32,7 +32,7 @@ import Main from '../container/templates/Main';
 //   );
 // };
 
-const Home: NextPage<{ code: string }> = ({ code }) => (
+const Home: NextPage<{ code: string }> = () => (
   <>
     <Main />
   </>
