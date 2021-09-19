@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
+import { MAX_PHASE } from '../lib/gameConstants';
 import type { AppState } from '../app/store';
 
 export type Character = {
   name: string;
   star: number;
   lv: number;
+  rank: number;
   specialLv: number;
   comment: string;
 };
@@ -28,13 +29,19 @@ export type TLState = {
 };
 
 const initialState: TLState = {
-  phase: 0,
+  phase: MAX_PHASE,
   damage: 0,
   bossName: '',
   startTime: 0,
   endTime: 0,
   characters: [],
-  timeline: [],
+  timeline: [
+    {
+      time: 30,
+      name: 'サレン',
+      comment: 'hello',
+    },
+  ],
   comment: '',
 };
 
@@ -75,13 +82,19 @@ export const tLSlice = createSlice({
     ) => {
       state.characters[action.payload.index].star = action.payload.value;
     },
-    changeCharacterLV: (
+    changeCharacterLv: (
       state,
       action: PayloadAction<{ index: number; value: number }>,
     ) => {
       state.characters[action.payload.index].lv = action.payload.value;
     },
-    changeCharacterSpecialLV: (
+    changeCharacterRank: (
+      state,
+      action: PayloadAction<{ index: number; value: number }>,
+    ) => {
+      state.characters[action.payload.index].rank = action.payload.value;
+    },
+    changeCharacterSpecialLv: (
       state,
       action: PayloadAction<{ index: number; value: number }>,
     ) => {
@@ -126,8 +139,9 @@ export const {
   changeComment,
   changeCharacterName,
   changeCharacterStar,
-  changeCharacterLV,
-  changeCharacterSpecialLV,
+  changeCharacterLv,
+  changeCharacterRank,
+  changeCharacterSpecialLv,
   changeCharacterComment,
   changeUBTime,
   changeUBName,

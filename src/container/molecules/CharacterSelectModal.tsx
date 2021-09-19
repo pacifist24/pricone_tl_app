@@ -6,6 +6,7 @@ import {
   CHARACTERS_INFO,
   MAX_LV,
   MAX_SPECIAL_LV,
+  MAX_RANK,
 } from '../../lib/gameConstants';
 
 type Props = {
@@ -52,6 +53,7 @@ const CharacterSelectModal: VFC<Props> = ({ isOpen, setIsOpen }) => {
               name,
               star: CHARACTERS_INFO[name].maxStar,
               lv: MAX_LV,
+              rank: MAX_RANK,
               specialLv: MAX_SPECIAL_LV,
               comment: '',
             }))

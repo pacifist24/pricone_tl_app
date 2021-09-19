@@ -1,6 +1,13 @@
 import { VFC } from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { selectTL, Character, changeCharacterStar } from '../../ducks/tl';
+import {
+  selectTL,
+  changeCharacterStar,
+  changeCharacterLv,
+  changeCharacterRank,
+  changeCharacterSpecialLv,
+  changeCharacterComment,
+} from '../../ducks/tl';
 import CharacterInputComponent from '../../components/molecules/CharacterInput';
 
 type Props = {
@@ -17,6 +24,18 @@ const CharacterInput: VFC<Props> = ({ index }) => {
         character={tl.characters[index]}
         changeCharacterStar={(star) =>
           dispatch(changeCharacterStar({ index, value: star }))
+        }
+        changeCharacterRank={(rank) =>
+          dispatch(changeCharacterRank({ index, value: rank }))
+        }
+        changeCharacterSpecialLv={(specialLv) =>
+          dispatch(changeCharacterSpecialLv({ index, value: specialLv }))
+        }
+        changeCharacterLv={(lv) =>
+          dispatch(changeCharacterLv({ index, value: lv }))
+        }
+        changeCharacterComment={(comment) =>
+          dispatch(changeCharacterComment({ index, value: comment }))
         }
       />
     </>

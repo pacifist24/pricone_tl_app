@@ -1,9 +1,19 @@
 import { VFC } from 'react';
-import CharacterPanel from '../../container/organizms/CharactersInput';
+import CharactersInput from '../../container/organizms/CharactersInput';
+import TLBasicDataInput from '../../container/molecules/TLBasicDataInput';
+import UBsInput from '../../container/organizms/UBsInput';
 
 const TLTab: VFC = () => (
-  <div className="flex pl-5 pr-4 border-b space-x-5">
-    <CharacterPanel />
+  <div className="border-b">
+    <div className="mt-5 ml-3">
+      <CharactersInput />
+    </div>
+    <div className="mt-5 ml-3">
+      <TLBasicDataInput />
+    </div>
+    <div className="mt-5 ml-3">
+      <UBsInput />
+    </div>
   </div>
 );
 

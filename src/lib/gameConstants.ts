@@ -1,7 +1,48 @@
 export const MAX_RANK = 22;
-export const MAX_LV = 208;
-export const MAX_SPECIAL_LV = 208;
+export const MAX_LV = 211;
+export const MAX_SPECIAL_LV = 220;
 export const MAX_STAR = 6;
+export const MAX_PHASE = 5;
+export const MAX_DAMAGE = 999999999;
+
+export const BOSSES_INFO = {
+  アクアリオス: {},
+  アルゲティ: {},
+  オークチーフ: {},
+  オブシダンワイバーン: {},
+  オルレオン: {},
+  カルキノス: {},
+  グラットン: {},
+  ゴブリングレート: {},
+  サイクロプス: {},
+  シードレイク: {},
+  スカイワルキューレ: {},
+  ソードコブラ: {},
+  ダークガーゴイル: {},
+  ツインピッグス: {},
+  ティタノタートル: {},
+  トライロッカー: {},
+  トルペドン: {},
+  ニードルクリーパー: {},
+  ネプテリオン: {},
+  バジリスク: {},
+  'マスター・センリ': {},
+  マダムプリズム: {},
+  マッドベア: {},
+  ミノタウロス: {},
+  ムーバ: {},
+  ムシュフシュ: {},
+  メガラバーン: {},
+  メサルティム: {},
+  メデューサ: {},
+  ライデン: {},
+  ライライ: {},
+  ランドスロース: {},
+  レイスロード: {},
+  レサトパルト: {},
+  ワイバーン: {},
+  ワイルドグリフォン: {},
+};
 
 export const CHARACTERS_INFO: {
   [key: string]: { maxStar: number; position: number };

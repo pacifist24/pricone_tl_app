@@ -1,16 +1,15 @@
 import { VFC } from 'react';
-import { useAppSelector } from '../../app/hooks';
-import { selectTL } from '../../ducks/tl';
-import TLTabComponent from '../../components/organizms/TLTab';
+import dynamic from 'next/dynamic';
 
-const TLTab: VFC = () => {
-  const tl = useAppSelector(selectTL);
+const TLTabComponent = dynamic(
+  () => import('../../components/organizms/TLTab'),
+  { ssr: false },
+);
 
-  return (
-    <>
-      <TLTabComponent tl={tl} />
-    </>
-  );
-};
+const TLTab: VFC = () => (
+  <>
+    <TLTabComponent />
+  </>
+);
 
 export default TLTab;

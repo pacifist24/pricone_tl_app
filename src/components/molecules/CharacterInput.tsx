@@ -1,37 +1,53 @@
 import { VFC } from 'react';
 import { Character } from '../../ducks/tl';
-import {
-  CHARACTERS_INFO,
-  MAX_LV,
-  MAX_RANK,
-  MAX_SPECIAL_LV,
-} from '../../lib/gameConstants';
+import { CHARACTERS_INFO } from '../../lib/gameConstants';
+import CharacterStarInput from '../atoms/CharacterStarInput';
+import CharacterLvInput from '../atoms/CharacterLvInput';
+import CharacterLvRank from '../atoms/CharacterRankInput';
+import CharacterSpecialLvInput from '../atoms/CharacterSpecialLvInput';
+import CharacterCommentInput from '../atoms/CharacterCommentInput';
 
 type Props = {
   character: Character;
   changeCharacterStar: (star: number) => void;
+  changeCharacterLv: (lv: number) => void;
+  changeCharacterRank: (rank: number) => void;
+  changeCharacterSpecialLv: (specialLv: number) => void;
+  changeCharacterComment: (comment: string) => void;
 };
 
-const CharacterInput: VFC<Props> = ({ character, changeCharacterStar }) => (
-  <div className="flex rounded-md">
+const CharacterInput: VFC<Props> = ({
+  character,
+  changeCharacterStar,
+  changeCharacterLv,
+  changeCharacterRank,
+  changeCharacterSpecialLv,
+  changeCharacterComment,
+}) => (
+  <div className="flex items-center rounded-md">
     <img
       src={`/characters/${character.name}.png`}
       className="m-1 w-11 h-11"
       alt=""
     />
-    <select
-      className="p-1 text-gray-600 appearance-none focus:outline-none"
-      value={character.star}
-      onChange={(val) => changeCharacterStar(parseInt(val.target.value, 10))}
-    >
-      {Array.from(Array(CHARACTERS_INFO[character.name].maxStar).keys())
-        .map((star) => (
-          <option value={star + 1} key={star}>
-            ★{star + 1}
-          </option>
-        ))
-        .reverse()}
-    </select>
+    <CharacterStarInput
+      star={character.star}
+      maxStar={CHARACTERS_INFO[character.name].maxStar}
+      changeCharacterStar={changeCharacterStar}
+    />
+    <CharacterLvRank
+      rank={character.rank}
+      changeCharacterRank={changeCharacterRank}
+    />
+    <CharacterSpecialLvInput
+      specialLv={character.specialLv}
+      changeCharacterSpecialLv={changeCharacterSpecialLv}
+    />
+    <CharacterLvInput lv={character.lv} changeCharacterLv={changeCharacterLv} />
+    <CharacterCommentInput
+      comment={character.comment}
+      changeCharacterComment={changeCharacterComment}
+    />
   </div>
 );
 
