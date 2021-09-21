@@ -5,7 +5,7 @@ type Props = {
   changeUBName?: () => void;
 };
 
-const TimeInput: VFC<Props> = ({
+const UBNameInput: VFC<Props> = ({
   name = '',
   changeUBName = () => undefined,
 }) => (
@@ -16,4 +16,4 @@ const TimeInput: VFC<Props> = ({
   </>
 );
 
-export default TimeInput;
+export default UBNameInput;

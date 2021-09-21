@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { MAX_RANK } from '../../lib/gameConstants';
+import { MAX_RANK } from 'lib/gameConstants';
 
 type Props = {
   rank: number;

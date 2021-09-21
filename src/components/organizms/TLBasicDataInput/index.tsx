@@ -1,13 +1,13 @@
 import { VFC } from 'react';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from 'app/hooks';
 import {
   selectTL,
   changePhase,
   changeDamage,
   changeBossName,
   changeComment,
-} from '../../ducks/tl';
-import TLBasicDataInputComponent from '../../components/molecules/TLBasicDataInput';
+} from 'ducks/tl';
+import TLBasicDataInputComponent from './presenter';
 
 const TLBasicDataInput: VFC = () => {
   const dispatch = useAppDispatch();

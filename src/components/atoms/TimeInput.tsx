@@ -2,10 +2,10 @@ import { VFC } from 'react';
 import { timeNum2Str } from '../../lib/util';
 
 type Props = {
-  time?: number;
-  changeTime?: (time: number) => void;
-  upperBound?: number;
-  lowerBound?: number;
+  time: number;
+  changeTime: (time: number) => void;
+  upperBound: number;
+  lowerBound: number;
 };
 
 const TimeInput: VFC<Props> = ({
@@ -18,7 +18,7 @@ const TimeInput: VFC<Props> = ({
     <select
       value={time}
       onChange={(e) => changeTime(parseInt(e.target.value, 10))}
-      className="focus:outline-none"
+      className="appearance-none focus:outline-none"
     >
       {Array.from(Array(upperBound - lowerBound + 1).keys())
         .map((val) => (

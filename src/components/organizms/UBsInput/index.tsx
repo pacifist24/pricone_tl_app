@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from 'app/hooks';
 import {
   selectTL,
   changeStartTime,
@@ -7,12 +7,22 @@ import {
   changeUBTime,
   changeUBName,
   changeUBComment,
-} from '../../ducks/tl';
-import UBsInputComponent from '../../components/organizms/UBsInput';
+  addUB,
+} from '../../../ducks/tl';
+import UBsInputComponent from './presenter';
 
 const UBsInput: VFC = () => {
   const dispatch = useAppDispatch();
   const tl = useAppSelector(selectTL);
+  const toggeleUBName = (index: number) => () => {
+    const candidateList = [
+      ...tl.characters.map((character) => character.name),
+      tl.bossName,
+    ];
+    const nowIndex = candidateList.indexOf(tl.timeline[index].name);
+    const nextIndex = (nowIndex + 1) % candidateList.length;
+    dispatch(changeUBName({ index, value: candidateList[nextIndex] }));
+  };
 
   return (
     <>
@@ -25,12 +35,11 @@ const UBsInput: VFC = () => {
         changeUBTime={(index, time) =>
           dispatch(changeUBTime({ index, value: time }))
         }
-        changeUBName={(index, name) =>
-          dispatch(changeUBName({ index, value: name }))
-        }
+        changeUBName={toggeleUBName}
         changeUBComment={(index, comment) =>
           dispatch(changeUBComment({ index, value: comment }))
         }
+        addUB={(index, ub) => dispatch(addUB({ index, ub }))}
       />
     </>
   );

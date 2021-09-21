@@ -12,6 +12,7 @@ export type Character = {
 };
 
 export type UB = {
+  id: number;
   time: number;
   name: string;
   comment: string;
@@ -32,14 +33,21 @@ const initialState: TLState = {
   phase: MAX_PHASE,
   damage: 0,
   bossName: '',
-  startTime: 0,
+  startTime: 90,
   endTime: 0,
   characters: [],
   timeline: [
     {
+      id: 100,
       time: 30,
       name: 'サレン',
       comment: 'hello',
+    },
+    {
+      id: 200,
+      time: 23,
+      name: 'アオイ',
+      comment: 'あああああああああああああああああああああああああああああああ',
     },
   ],
   comment: '',
@@ -127,6 +135,9 @@ export const tLSlice = createSlice({
     addUB: (state, action: PayloadAction<{ index: number; ub: UB }>) => {
       state.timeline.splice(action.payload.index, 0, action.payload.ub);
     },
+    deleteUB: (state, action: PayloadAction<number>) => {
+      state.timeline.splice(action.payload, 1);
+    },
   },
 });
 
@@ -147,6 +158,7 @@ export const {
   changeUBName,
   changeUBComment,
   addUB,
+  deleteUB,
   selectCharacters,
 } = tLSlice.actions;
 

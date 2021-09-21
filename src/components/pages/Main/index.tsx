@@ -1,7 +1,7 @@
 import { VFC } from 'react';
-import { TabType } from '../../ducks/main';
-import TabBar from '../molecules/TabBar';
-import TLTab from '../../container/organizms/TLTab';
+import { TabType } from 'ducks/main';
+import TabBar from 'components/molecules/TabBar';
+import TLTab from 'components/templates/TLTab';
 
 type Props = {
   activeTab: TabType;

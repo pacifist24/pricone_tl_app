@@ -1,7 +1,7 @@
 import { VFC, useState } from 'react';
-import { useAppSelector } from '../../app/hooks';
-import { selectTL } from '../../ducks/tl';
-import CharactersInputComponent from '../../components/organizms/CharactersInput';
+import { selectTL } from 'ducks/tl';
+import { useAppSelector } from 'app/hooks';
+import CharactersInputComponent from './presenter';
 
 const CharactersInput: VFC = () => {
   const tl = useAppSelector(selectTL);

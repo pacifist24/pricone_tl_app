@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { MAX_LV } from '../../lib/gameConstants';
+import { MAX_LV } from 'lib/gameConstants';
 
 type Props = {
   lv: number;

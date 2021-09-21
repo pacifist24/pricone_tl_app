@@ -1,8 +1,8 @@
 import { VFC } from 'react';
 import { Button } from '@material-ui/core';
-import { Character } from '../../ducks/tl';
-import CharacterSelectModal from '../../container/molecules/CharacterSelectModal';
-import CharacterInput from '../../container/molecules/CharacterInput';
+import { Character } from 'ducks/tl';
+import CharacterSelectModal from '../../../container/molecules/CharacterSelectModal';
+import CharacterInput from './CharacterInput';
 
 type Props = {
   characters: Character[];
