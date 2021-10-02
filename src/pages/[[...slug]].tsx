@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 // import { ParsedUrlQuery } from 'querystring';
 import { GetServerSideProps } from 'next';
-import Main from 'components/pages/Main/presenter';
+import Main from 'components/pages/Main';
 // import { useAppSelector, useAppDispatch } from '../app/hooks';
 // import { changeBossName, selectBossName, selectTL } from '../ducks/tl';
 // import { changeHeaderFormat, selectHeaderFormat } from '../ducks/style';

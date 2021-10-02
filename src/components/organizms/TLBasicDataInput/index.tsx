@@ -6,12 +6,17 @@ import {
   changeDamage,
   changeBossName,
   changeComment,
+  sanitizeUB,
 } from 'ducks/tl';
 import TLBasicDataInputComponent from './presenter';
 
 const TLBasicDataInput: VFC = () => {
   const dispatch = useAppDispatch();
   const tl = useAppSelector(selectTL);
+  const handleChangeBossName = (bossName) => {
+    dispatch(changeBossName(bossName));
+    dispatch(sanitizeUB());
+  };
 
   return (
     <>
@@ -19,7 +24,7 @@ const TLBasicDataInput: VFC = () => {
         tl={tl}
         changePhase={(phase) => dispatch(changePhase(phase))}
         changeDamage={(damage) => dispatch(changeDamage(damage))}
-        changeBossName={(bossName) => dispatch(changeBossName(bossName))}
+        changeBossName={handleChangeBossName}
         changeComment={(comment) => dispatch(changeComment(comment))}
       />
     </>

@@ -5,7 +5,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import clsx from 'clsx';
-import { CHARACTERS_INFO } from '../../lib/gameConstants';
+import { CHARACTERS_INFO } from '../../../lib/gameConstants';
 
 const CharacterImage: VFC<{
   name: string;

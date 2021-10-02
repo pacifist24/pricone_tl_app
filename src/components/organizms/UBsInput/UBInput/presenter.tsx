@@ -29,7 +29,7 @@ const UBInput: VFC<Props> = ({
   deleteThis = () => undefined,
 }) => (
   <>
-    <div className="flex items-center max-w-md group">
+    <div className="flex items-center max-w-md mb-2 group">
       <div className="flex flex-col items-center mr-1.5">
         <UBNameInput name={ub.name} changeUBName={changeUBName} />
         <TimeInput
@@ -56,11 +56,11 @@ const UBInput: VFC<Props> = ({
         <CommonMenu
           menuItems={[
             {
-              title: '新しい行を前行に挿入',
+              title: '前行に新しい行を挿入',
               func: insertUBPrev,
             },
             {
-              title: '新しい行を次行に挿入',
+              title: '次行に新しい行を挿入',
               func: insertUBNext,
             },
             {

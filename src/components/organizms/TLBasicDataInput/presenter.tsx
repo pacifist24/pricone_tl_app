@@ -44,7 +44,7 @@ const TLBasicDataInput: VFC<Props> = ({
       </div>
       <div className="mr-3">段階目</div>
       <div className="mr-4">
-        <FormControl size="small" variant="outlined" className="w-48">
+        <FormControl size="small" variant="outlined" className="w-52">
           <InputLabel>ボス名</InputLabel>
           <Select
             value={tl.bossName}

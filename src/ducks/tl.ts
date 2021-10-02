@@ -36,20 +36,7 @@ const initialState: TLState = {
   startTime: 90,
   endTime: 0,
   characters: [],
-  timeline: [
-    {
-      id: 100,
-      time: 30,
-      name: 'サレン',
-      comment: 'hello',
-    },
-    {
-      id: 200,
-      time: 23,
-      name: 'アオイ',
-      comment: 'あああああああああああああああああああああああああああああああ',
-    },
-  ],
+  timeline: [],
   comment: '',
 };
 
@@ -138,6 +125,24 @@ export const tLSlice = createSlice({
     deleteUB: (state, action: PayloadAction<number>) => {
       state.timeline.splice(action.payload, 1);
     },
+    sanitizeUB: (state) => {
+      state.timeline = state.timeline.filter(
+        (ub) =>
+          ub.name === state.bossName ||
+          state.characters.map((character) => character.name).includes(ub.name),
+      );
+    },
+    loadTL: (state, action: PayloadAction<TLState>) => {
+      state.bossName = action.payload.bossName;
+      state.characters = action.payload.characters;
+      state.comment = action.payload.comment;
+      state.damage = action.payload.damage;
+      state.endTime = action.payload.endTime;
+      state.timeline = action.payload.timeline;
+      state.phase = action.payload.phase;
+      state.startTime = action.payload.startTime;
+      state.endTime = action.payload.endTime;
+    },
   },
 });
 
@@ -160,8 +165,15 @@ export const {
   addUB,
   deleteUB,
   selectCharacters,
+  sanitizeUB,
+  loadTL,
 } = tLSlice.actions;
 
 export const selectTL = (state: AppState): TLState => state.tl;
-
+export const selectIsCharactersInputVisible = (state: AppState): boolean =>
+  state.tl.characters.length === 5;
+export const selectIsTLBasicDataInputVisible = (state: AppState): boolean =>
+  state.tl.characters.length === 5;
+export const selectIsUBsInputVisible = (state: AppState): boolean =>
+  state.tl.bossName !== '' && state.tl.characters.length === 5;
 export default tLSlice.reducer;

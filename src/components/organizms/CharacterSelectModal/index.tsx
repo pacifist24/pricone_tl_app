@@ -1,13 +1,9 @@
 import { VFC, useState, useEffect } from 'react';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { selectTL, selectCharacters } from '../../ducks/tl';
-import CharacterSelectModalComponent from '../../components/molecules/CharacterSelectModal';
-import {
-  CHARACTERS_INFO,
-  MAX_LV,
-  MAX_SPECIAL_LV,
-  MAX_RANK,
-} from '../../lib/gameConstants';
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+import { selectTL, selectCharacters, sanitizeUB } from 'ducks/tl';
+import { CHARACTERS_INFO, MAX_LV, MAX_RANK } from 'lib/gameConstants';
+import { getDefaultSpecialLv } from 'lib/util';
+import CharacterSelectModalComponent from './presenter';
 
 type Props = {
   isOpen: boolean;
@@ -44,6 +40,7 @@ const CharacterSelectModal: VFC<Props> = ({ isOpen, setIsOpen }) => {
 
   const handleOK = () => {
     if (tempSelectedCharacters.length < 5) {
+      // eslint-disable-next-line no-alert
       alert('5キャラ選択してください');
     } else {
       dispatch(
@@ -54,7 +51,7 @@ const CharacterSelectModal: VFC<Props> = ({ isOpen, setIsOpen }) => {
               star: CHARACTERS_INFO[name].maxStar,
               lv: MAX_LV,
               rank: MAX_RANK,
-              specialLv: MAX_SPECIAL_LV,
+              specialLv: getDefaultSpecialLv(name),
               comment: '',
             }))
             .sort(
@@ -64,6 +61,7 @@ const CharacterSelectModal: VFC<Props> = ({ isOpen, setIsOpen }) => {
             ),
         ),
       );
+      dispatch(sanitizeUB());
       setIsOpen(false);
     }
   };
