@@ -1,8 +1,9 @@
 import { TLState } from 'ducks/tl';
 import { timeStr2Num, getDefaultSpecialLv } from 'lib/util';
+import { CHARACTERS_INFO } from 'lib/gameConstants';
 
 // プリコネのTL書き出し機能により出力された文字列から情報を抜き出す
-const parseTlData = (text: string): TLState => {
+const parseTlData = (text: string): TLState | null => {
   const generateLineReader = () => {
     const lines: string[] = text
       .split(/\r\n|\n/)
@@ -29,8 +30,12 @@ const parseTlData = (text: string): TLState => {
   if (line.length >= 3) {
     if (!Number.isNaN(line[1].replace('段階目', ''))) {
       tlData.phase = parseInt(line[1].replace('段階目', ''), 10);
+    } else {
+      return null;
     }
     [tlData.bossName] = [line[2]];
+  } else {
+    return null;
   }
 
   // 2行目
@@ -40,6 +45,8 @@ const parseTlData = (text: string): TLState => {
     tlData.damage = Math.floor(
       parseInt(line[0].replace('ダメージ', ''), 10) / 10000,
     );
+  } else {
+    return null;
   }
 
   // 3行目
@@ -68,7 +75,8 @@ const parseTlData = (text: string): TLState => {
       line.length >= 4 &&
       !Number.isNaN(line[1].replace('★', '')) &&
       !Number.isNaN(line[2].replace('Lv', '')) &&
-      !Number.isNaN(line[3].replace('RANK', ''))
+      !Number.isNaN(line[3].replace('RANK', '')) &&
+      CHARACTERS_INFO[line[0]]
     ) {
       tlData.characters.push({
         lv: parseInt(line[2].replace('Lv', ''), 10),
@@ -78,6 +86,8 @@ const parseTlData = (text: string): TLState => {
         specialLv: getDefaultSpecialLv(line[0]),
         comment: '',
       });
+    } else {
+      return null;
     }
   }
 
@@ -93,6 +103,8 @@ const parseTlData = (text: string): TLState => {
   line = lineReader();
   if (line.length >= 1 && /^0[0-1]:[0-5][0-9]$/.test(line[0])) {
     tlData.startTime = timeStr2Num(line[0]);
+  } else {
+    return null;
   }
 
   line = lineReader();

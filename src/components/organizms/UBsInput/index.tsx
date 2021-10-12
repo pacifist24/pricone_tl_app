@@ -1,6 +1,7 @@
 import { VFC } from 'react';
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { selectTL, changeStartTime, changeEndTime, addUB } from 'ducks/tl';
+import { changeStartTime as changeStyleStartTime } from 'ducks/style';
 import UBsInputComponent from './presenter';
 
 const UBsInput: VFC = () => {
@@ -18,6 +19,10 @@ const UBsInput: VFC = () => {
         },
       }),
     );
+  const handleChangeStartTime = (time: number) => {
+    dispatch(changeStartTime(time));
+    dispatch(changeStyleStartTime(time));
+  };
 
   return (
     <>
@@ -25,7 +30,7 @@ const UBsInput: VFC = () => {
         ubs={tl.timeline}
         startTime={tl.startTime}
         endTime={tl.endTime}
-        changeStartTime={(time) => dispatch(changeStartTime(time))}
+        changeStartTime={handleChangeStartTime}
         changeEndTime={(time) => dispatch(changeEndTime(time))}
         insertUBFirst={insertUBFirst}
       />

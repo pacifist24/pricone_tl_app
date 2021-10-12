@@ -5,7 +5,9 @@ type Props = {
   setIsCharacterSelectModalOpen: (val: boolean) => void;
 };
 
-const CharacterInput: VFC<Props> = ({ setIsCharacterSelectModalOpen }) => (
+const SelectCharactersButton: VFC<Props> = ({
+  setIsCharacterSelectModalOpen,
+}) => (
   <Button
     variant="contained"
     color="primary"
@@ -15,4 +17,4 @@ const CharacterInput: VFC<Props> = ({ setIsCharacterSelectModalOpen }) => (
   </Button>
 );
 
-export default CharacterInput;
+export default SelectCharactersButton;

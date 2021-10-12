@@ -1,7 +1,8 @@
 import { VFC } from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-import { TextField, Select } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { TLState } from 'ducks/tl';
 import { MAX_PHASE, MAX_DAMAGE, BOSSES_INFO } from 'lib/gameConstants';

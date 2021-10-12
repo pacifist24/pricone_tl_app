@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { TextField } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 
 type Props = {
   comment: string;
@@ -10,7 +10,7 @@ const CharacterCommentInput: VFC<Props> = ({
   comment,
   changeCharacterComment,
 }) => (
-  <div className="mx-4">
+  <div className="mx-2">
     <TextField
       label="装備状況等"
       variant="outlined"
@@ -18,7 +18,7 @@ const CharacterCommentInput: VFC<Props> = ({
       InputLabelProps={{
         shrink: true,
       }}
-      className="w-48"
+      className="w-36"
       value={comment}
       onChange={(e) => changeCharacterComment(e.target.value)}
     />

@@ -1,6 +1,7 @@
 import { VFC, useState, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { selectTL, selectCharacters, sanitizeUB } from 'ducks/tl';
+import { openAlert } from 'ducks/commonAlert';
 import { CHARACTERS_INFO, MAX_LV, MAX_RANK } from 'lib/gameConstants';
 import { getDefaultSpecialLv } from 'lib/util';
 import CharacterSelectModalComponent from './presenter';
@@ -41,7 +42,17 @@ const CharacterSelectModal: VFC<Props> = ({ isOpen, setIsOpen }) => {
   const handleOK = () => {
     if (tempSelectedCharacters.length < 5) {
       // eslint-disable-next-line no-alert
-      alert('5キャラ選択してください');
+      dispatch(
+        openAlert({
+          message: '5キャラ選択してください',
+          severity: 'error',
+          duration: 3000,
+          anchorOrigin: {
+            vertical: 'top',
+            horizontal: 'center',
+          },
+        }),
+      );
     } else {
       dispatch(
         selectCharacters(

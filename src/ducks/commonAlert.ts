@@ -1,45 +1,49 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AppState } from 'app/store';
 
-export type CommonDialogState = {
+export type CommonAlertState = {
   isOpen: boolean;
   message: string;
+  anchorOrigin: {
+    vertical: 'bottom' | 'top';
+    horizontal: 'center' | 'left' | 'right';
+  };
   severity: 'error' | 'info' | 'success' | 'warning';
   duration: number;
 };
 
-const initialState: CommonDialogState = {
+const initialState: CommonAlertState = {
   isOpen: false,
-  message: '',
+  message: 'aaa',
   severity: 'error',
-  duration: 0,
+  anchorOrigin: {
+    vertical: 'top',
+    horizontal: 'center',
+  },
+  duration: 10000,
 };
 
-export const commonDialogSlice = createSlice({
-  name: 'commonDialog',
+export const commonAlertSlice = createSlice({
+  name: 'commonAlert',
   initialState,
   reducers: {
-    openDialog: (
+    openAlert: (
       state,
-      action: PayloadAction<{
-        message: string;
-        severity: 'error' | 'info' | 'success' | 'warning';
-        duration: number;
-      }>,
+      action: PayloadAction<Omit<CommonAlertState, 'isOpen'>>,
     ) => {
       state.isOpen = true;
       state.message = action.payload.message;
       state.severity = action.payload.severity;
+      state.anchorOrigin = action.payload.anchorOrigin;
       state.duration = action.payload.duration;
     },
-    closeDialog: (state) => {
+    closeAlert: (state) => {
       state.isOpen = false;
-      state.message = '';
-      state.severity = 'error';
-      state.duration = 0;
     },
   },
 });
 
-export const { openDialog, closeDialog } = commonDialogSlice.actions;
-
-export default commonDialogSlice.reducer;
+export const { openAlert, closeAlert } = commonAlertSlice.actions;
+export const selectCommonAlertState = (state: AppState): CommonAlertState =>
+  state.commonAlert;
+export default commonAlertSlice.reducer;

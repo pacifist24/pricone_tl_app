@@ -45,7 +45,12 @@ export const BOSSES_INFO = {
 };
 
 export const CHARACTERS_INFO: {
-  [key: string]: { maxStar: number; position: number; hasSpecial: boolean };
+  [key: string]: {
+    maxStar: number;
+    position: number;
+    hasSpecial: boolean;
+    defaultShortName?: string;
+  };
 } = {
   リマ: {
     maxStar: 6,
@@ -71,11 +76,13 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 138,
     hasSpecial: false,
+    defaultShortName: 'ニュイミ',
   },
   'クウカ（オーエド）': {
     maxStar: 5,
     position: 140,
     hasSpecial: true,
+    defaultShortName: 'オウカ',
   },
   カオリ: {
     maxStar: 6,
@@ -86,31 +93,37 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 150,
     hasSpecial: false,
+    defaultShortName: 'クリサレ',
   },
   'ツムギ（ハロウィン）': {
     maxStar: 5,
     position: 152,
     hasSpecial: false,
+    defaultShortName: 'ハロツム',
   },
   'レイ（ニューイヤー）': {
     maxStar: 5,
     position: 153,
     hasSpecial: true,
+    defaultShortName: 'ニュレイ',
   },
   'リン（デレマス）': {
     maxStar: 5,
     position: 153.1,
     hasSpecial: true,
+    defaultShortName: 'デレリン',
   },
   ペコリーヌ: {
     maxStar: 6,
     position: 155,
     hasSpecial: true,
+    defaultShortName: 'ペコ',
   },
   'ペコリーヌ（プリンセス）': {
     maxStar: 5,
     position: 155.1,
     hasSpecial: false,
+    defaultShortName: 'プリペコ',
   },
   ルカ: {
     maxStar: 5,
@@ -121,6 +134,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 159,
     hasSpecial: true,
+    defaultShortName: 'ニュコロ',
   },
   ノゾミ: {
     maxStar: 6,
@@ -136,6 +150,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 163,
     hasSpecial: false,
+    defaultShortName: '水シズル',
   },
   マコト: {
     maxStar: 5,
@@ -146,6 +161,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 166,
     hasSpecial: false,
+    defaultShortName: 'デレマコ',
   },
   カヤ: {
     maxStar: 5,
@@ -156,21 +172,25 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 169,
     hasSpecial: false,
+    defaultShortName: 'カヤベル',
   },
   'ヒヨリ（ニューイヤー）': {
     maxStar: 5,
     position: 170,
     hasSpecial: true,
+    defaultShortName: 'ニュヨリ',
   },
   'リマ（シンデレラ）': {
     maxStar: 5,
     position: 173,
     hasSpecial: false,
+    defaultShortName: 'デレリマ',
   },
   'ニノン（オーエド）': {
     maxStar: 5,
     position: 175,
     hasSpecial: true,
+    defaultShortName: 'オノン',
   },
   アキノ: {
     maxStar: 6,
@@ -181,16 +201,19 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 180.1,
     hasSpecial: true,
+    defaultShortName: '水マコ',
   },
   'ジュン（サマー）': {
     maxStar: 5,
     position: 182,
     hasSpecial: true,
+    defaultShortName: '水ジュン',
   },
   'クロエ（聖学祭）': {
     maxStar: 5,
     position: 184,
     hasSpecial: false,
+    defaultShortName: '聖クロエ',
   },
   マツリ: {
     maxStar: 5,
@@ -205,27 +228,32 @@ export const CHARACTERS_INFO: {
   'マツリ（ハロウィン）': {
     maxStar: 5,
     position: 186,
-    hasSpecial: false,
+    hasSpecial: true,
+    defaultShortName: 'ハロマツ',
   },
   'エリコ（バレンタイン）': {
     maxStar: 5,
     position: 187,
     hasSpecial: true,
+    defaultShortName: 'バレエリコ',
   },
   'アキノ（クリスマス）': {
     maxStar: 5,
     position: 189,
     hasSpecial: false,
+    defaultShortName: 'クリアキノ',
   },
   'アヤネ（クリスマス）': {
     maxStar: 5,
     position: 190,
     hasSpecial: true,
+    defaultShortName: 'クリキチ',
   },
   'ルカ（サマー）': {
     maxStar: 5,
     position: 192,
     hasSpecial: true,
+    defaultShortName: '水ルカ',
   },
   ツムギ: {
     maxStar: 5,
@@ -241,6 +269,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 199,
     hasSpecial: false,
+    defaultShortName: 'プヨリ',
   },
   ヒヨリ: {
     maxStar: 6,
@@ -261,6 +290,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 212,
     hasSpecial: true,
+    defaultShortName: 'ハロミソ',
   },
   タマキ: {
     maxStar: 6,
@@ -271,6 +301,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 216,
     hasSpecial: false,
+    defaultShortName: '作タマ',
   },
   トモ: {
     maxStar: 5,
@@ -286,11 +317,13 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 223,
     hasSpecial: false,
+    defaultShortName: '聖チエル',
   },
   'タマキ（サマー）': {
     maxStar: 5,
     position: 225,
     hasSpecial: true,
+    defaultShortName: '水タマ',
   },
   エリコ: {
     maxStar: 5,
@@ -301,6 +334,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 235,
     hasSpecial: true,
+    defaultShortName: '水ペコ',
   },
   クルミ: {
     maxStar: 6,
@@ -316,6 +350,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 248,
     hasSpecial: true,
+    defaultShortName: 'ニュペコ',
   },
   レイ: {
     maxStar: 6,
@@ -326,26 +361,31 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 252,
     hasSpecial: false,
+    defaultShortName: 'タイノリ',
   },
   'イリヤ（クリスマス）': {
     maxStar: 5,
     position: 255,
     hasSpecial: true,
+    defaultShortName: 'クリヤ',
   },
   'アンナ（サマー）': {
     maxStar: 5,
     position: 256,
     hasSpecial: true,
+    defaultShortName: '水アンナ',
   },
   'クリスティーナ（クリスマス）': {
     maxStar: 5,
     position: 265,
     hasSpecial: true,
+    defaultShortName: 'クリクリス',
   },
   'ミフユ（作業服）': {
     maxStar: 5,
     position: 275,
     hasSpecial: false,
+    defaultShortName: 'サフユ',
   },
   シズル: {
     maxStar: 6,
@@ -356,16 +396,19 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 290,
     hasSpecial: true,
+    defaultShortName: 'クリス',
   },
   'クルミ（クリスマス）': {
     maxStar: 5,
     position: 295,
     hasSpecial: true,
+    defaultShortName: 'クリクルミ',
   },
   'ツムギ（サマー）': {
     maxStar: 5,
     position: 355,
     hasSpecial: false,
+    defaultShortName: '水ツムギ',
   },
   ミミ: {
     maxStar: 6,
@@ -381,6 +424,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 365.1,
     hasSpecial: true,
+    defaultShortName: 'ハロミミ',
   },
   シェフィ: {
     maxStar: 5,
@@ -391,26 +435,31 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 370,
     hasSpecial: true,
+    defaultShortName: 'ウヅキ',
   },
   'レイ（ハロウィン）': {
     maxStar: 5,
     position: 375,
-    hasSpecial: false,
+    hasSpecial: true,
+    defaultShortName: 'ハロレイ',
   },
   'レイ（プリンセス）': {
     maxStar: 5,
     position: 377,
     hasSpecial: false,
+    defaultShortName: 'プリレイ',
   },
   'シズル（バレンタイン）': {
     maxStar: 5,
     position: 385,
     hasSpecial: true,
+    defaultShortName: 'バレシズ',
   },
   'マヒル（レンジャー）': {
     maxStar: 5,
     position: 390,
     hasSpecial: true,
+    defaultShortName: '卍',
   },
   マヒル: {
     maxStar: 6,
@@ -421,6 +470,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 402,
     hasSpecial: false,
+    defaultShortName: 'ニートモ',
   },
   ユカリ: {
     maxStar: 6,
@@ -431,11 +481,13 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 407,
     hasSpecial: false,
+    defaultShortName: '水エリコ',
   },
   'ユカリ（クリスマス）': {
     maxStar: 5,
     position: 408,
     hasSpecial: false,
+    defaultShortName: 'Xユカリ',
   },
   モニカ: {
     maxStar: 5,
@@ -451,11 +503,13 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 417,
     hasSpecial: false,
+    defaultShortName: '水ノゾミ',
   },
   'ノゾミ（クリスマス）': {
     maxStar: 5,
     position: 418,
     hasSpecial: true,
+    defaultShortName: 'Xノゾミ',
   },
   ミフユ: {
     maxStar: 6,
@@ -466,6 +520,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 422,
     hasSpecial: true,
+    defaultShortName: 'リンジャー',
   },
   イリヤ: {
     maxStar: 5,
@@ -476,6 +531,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 425.1,
     hasSpecial: true,
+    defaultShortName: '水カオリ',
   },
   サレン: {
     maxStar: 6,
@@ -491,16 +547,19 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 440.1,
     hasSpecial: true,
+    defaultShortName: 'ハロシノ',
   },
   'ナナカ（サマー）': {
     maxStar: 5,
     position: 468,
     hasSpecial: true,
+    defaultShortName: '水ナナカ',
   },
   'ミフユ（サマー）': {
     maxStar: 5,
     position: 495,
     hasSpecial: true,
+    defaultShortName: '水ミフユ',
   },
   コッコロ: {
     maxStar: 6,
@@ -511,6 +570,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 508,
     hasSpecial: true,
+    defaultShortName: 'ワユミ',
   },
   アユミ: {
     maxStar: 5,
@@ -521,6 +581,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 520,
     hasSpecial: false,
+    defaultShortName: '水チカ',
   },
   グレア: {
     maxStar: 5,
@@ -531,31 +592,37 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 527,
     hasSpecial: false,
+    defaultShortName: 'サオイ',
   },
   'モニカ（マジカル）': {
     maxStar: 5,
     position: 528,
     hasSpecial: false,
+    defaultShortName: 'ラブモニ',
   },
   'アカリ（エンジェル）': {
     maxStar: 5,
     position: 530,
     hasSpecial: true,
+    defaultShortName: '天アカリ',
   },
   'ヨリ（エンジェル）': {
     maxStar: 5,
     position: 531,
     hasSpecial: true,
+    defaultShortName: '天ヨリ',
   },
   'コッコロ（儀装束）': {
     maxStar: 5,
     position: 533,
     hasSpecial: false,
+    defaultShortName: 'ギッコロ',
   },
   'コッコロ（サマー）': {
     maxStar: 5,
     position: 535,
     hasSpecial: true,
+    defaultShortName: '水コロ',
   },
   レム: {
     maxStar: 5,
@@ -576,21 +643,25 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 552,
     hasSpecial: false,
+    defaultShortName: 'オツキ',
   },
   'コッコロ（プリンセス）': {
     maxStar: 5,
     position: 555,
     hasSpecial: false,
+    defaultShortName: 'セスコ',
   },
   ラビリスタ: {
     maxStar: 5,
     position: 560,
     hasSpecial: false,
+    defaultShortName: 'ラビリ',
   },
   'ネネカ（ニューイヤー）': {
     maxStar: 5,
     position: 562,
     hasSpecial: false,
+    defaultShortName: '傘',
   },
   ミツキ: {
     maxStar: 5,
@@ -601,6 +672,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 567,
     hasSpecial: true,
+    defaultShortName: '水ハツネ',
   },
   アカリ: {
     maxStar: 6,
@@ -616,16 +688,19 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 578,
     hasSpecial: false,
+    defaultShortName: 'ギュイ',
   },
   'サレン（サマー）': {
     maxStar: 5,
     position: 585,
     hasSpecial: true,
+    defaultShortName: '水サレ',
   },
   'ミヤコ（ハロウィン）': {
     maxStar: 5,
     position: 590,
     hasSpecial: true,
+    defaultShortName: 'ハロプリン',
   },
   アリサ: {
     maxStar: 5,
@@ -646,6 +721,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 645,
     hasSpecial: false,
+    defaultShortName: 'デレマホ',
   },
   ネネカ: {
     maxStar: 5,
@@ -656,21 +732,25 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 680,
     hasSpecial: true,
+    defaultShortName: 'ヘオイ',
   },
   'キャル（ニューイヤー）': {
     maxStar: 5,
     position: 690,
     hasSpecial: false,
+    defaultShortName: 'ニャル',
   },
   'ミオ（デレマス）': {
     maxStar: 5,
     position: 695,
     hasSpecial: true,
+    defaultShortName: 'ミオ',
   },
   'ミサト（サマー）': {
     maxStar: 5,
     position: 697,
     hasSpecial: true,
+    defaultShortName: '水ミサト',
   },
   リノ: {
     maxStar: 6,
@@ -686,6 +766,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 705.1,
     hasSpecial: true,
+    defaultShortName: '水菜',
   },
   シオリ: {
     maxStar: 5,
@@ -696,6 +777,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 712,
     hasSpecial: true,
+    defaultShortName: 'マオリ',
   },
   イオ: {
     maxStar: 5,
@@ -706,6 +788,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 715.1,
     hasSpecial: true,
+    defaultShortName: '水イオ',
   },
   スズメ: {
     maxStar: 5,
@@ -716,6 +799,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 722,
     hasSpecial: true,
+    defaultShortName: 'ニュズメ',
   },
   エミリア: {
     maxStar: 5,
@@ -731,16 +815,19 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 730.1,
     hasSpecial: true,
+    defaultShortName: 'マジカス',
   },
   'リノ（ワンダー）': {
     maxStar: 5,
     position: 730.2,
     hasSpecial: true,
+    defaultShortName: 'ワリノ',
   },
   'ハツネ＆シオリ': {
     maxStar: 5,
     position: 732,
     hasSpecial: false,
+    defaultShortName: 'ハツシオ',
   },
   ミサト: {
     maxStar: 5,
@@ -751,6 +838,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 738,
     hasSpecial: true,
+    defaultShortName: '水カス',
   },
   ナナカ: {
     maxStar: 5,
@@ -761,11 +849,13 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 745,
     hasSpecial: true,
+    defaultShortName: 'ニュイ',
   },
   'キャル（プリンセス）': {
     maxStar: 5,
     position: 747,
     hasSpecial: false,
+    defaultShortName: 'プリキャル',
   },
   キャル: {
     maxStar: 6,
@@ -791,21 +881,25 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 767,
     hasSpecial: false,
+    defaultShortName: 'プリユイ',
   },
   'チカ（クリスマス）': {
     maxStar: 5,
     position: 770,
     hasSpecial: true,
+    defaultShortName: 'クリチカ',
   },
   'スズメ（サマー）': {
     maxStar: 5,
     position: 775,
     hasSpecial: true,
+    defaultShortName: '水メ',
   },
   'キャル（サマー）': {
     maxStar: 5,
     position: 780,
     hasSpecial: true,
+    defaultShortName: '水キャル',
   },
   アオイ: {
     maxStar: 6,
@@ -821,6 +915,7 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 792,
     hasSpecial: true,
+    defaultShortName: '水マホ',
   },
   マホ: {
     maxStar: 6,
@@ -851,10 +946,12 @@ export const CHARACTERS_INFO: {
     maxStar: 5,
     position: 815,
     hasSpecial: true,
+    defaultShortName: 'ハロミサ',
   },
   'キョウカ（ハロウィン）': {
     maxStar: 5,
     position: 820,
     hasSpecial: true,
+    defaultShortName: 'ハロキョ',
   },
 };
